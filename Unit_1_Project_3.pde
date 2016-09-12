@@ -8,12 +8,6 @@ float X2 = 50;
 float Y2 = 200;
 float W2 = 150;
 float H2 = 80;
-//Pause Button
-float X3 = 683;
-float Y3 = 384;
-float W3 = 150;
-float H3 = 80;
-
 int c;
 //Music for Rock and Roll Button
 import ddf.minim.*;
@@ -65,15 +59,14 @@ void draw()
   image(Rock, 1000, 250);
   textFont(f, 50);//Text Size and Loading the Font
   fill(0);//Color of Text
+  textAlign(CENTER);// Where should the text be put
+  text("Arizona Western College Radio", width/2, 60);// What is the Text
+
   background(255, 0, 0);
   rect(X, Y, W, H);//Rectangle Coordinates for Rock & Roll
   fill(255);//Color of Rectangle
   rect(X2, Y2, W2, H2);//Rectangle Coordinates for Electronic
   fill(255);
-  rect(X3, Y3, W3, H3);
-  fill(255);
-  textAlign(CENTER);// Where should the text be put
-  text("Arizona Western College Radio", width/2, 60);// What is the Text`
   {//Mouse Cursor
     for (int i = num2-1; i > 0; i--) 
     {
@@ -106,25 +99,12 @@ void draw()
         {
           for (int d=0; d<3; d++)
           {
-            player[d].pause();
-            player[d].rewind();
+            player[c].pause();
+            player[c].rewind();
             player2[c].play();
           }
         }
       }
     }
   }
- /* if (mousePressed)
-  {
-    if (mouseX>= X2 && mouseX <= X2+W2 && mouseY >= Y2 && mouseY <= Y2+H2)
-    {
-      for (int e = 0; e<3; e++);
-      {
-        player[c].pause();
-        player[c].rewind();
-        player2[c].pause();
-        player2[c].pause();
-      }
-    }
-  }*/
 }
