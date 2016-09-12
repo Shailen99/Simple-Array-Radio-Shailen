@@ -8,7 +8,19 @@ float X2 = 50;
 float Y2 = 200;
 float W2 = 150;
 float H2 = 80;
+//Pause Button
+float X3 = 683;
+float Y3 = 384;
+float W3 = 150;
+float H3 = 80;
+//Play Button
+float X4 = 560;
+float Y4 = 384;
+float W4 = 150;
+float H4 = 80;
+//Variables for Arrays
 int c;
+int e;
 //Music for Rock and Roll Button
 import ddf.minim.*;
 Minim minim;
@@ -28,12 +40,10 @@ PFont f;//Loading Font in for Name
 int num2 = 50;
 int[] x = new int[num2];
 int[] y = new int[num2];
-
+//Images
 PImage EDM, Rock;
 void setup()
 {
-  EDM = loadImage("EDMLogo.png");
-  Rock = loadImage("RockLogo.png");
   fullScreen();
   noStroke();
   fill(255, 102);
@@ -49,24 +59,23 @@ void setup()
     player2[c] = minim.loadFile(Songs2[c], 2048);
   }
 
-  f = createFont("Arial", 16, false);//Create the font and decide which file it i
+  f = createFont("Arial", 16, false);//Create the font and decide which file it is
+  EDM = loadImage("EDMLogo.png");
 }
 void draw()
 {
-  EDM = loadImage("EDMLogo.png");
-  Rock = loadImage("RockLogo.png");
-  image(EDM, 50, 250);
-  image(Rock, 1000, 250);
+  image(EDM, 1100, 300);
   textFont(f, 50);//Text Size and Loading the Font
   fill(0);//Color of Text
-  textAlign(CENTER);// Where should the text be put
-  text("Arizona Western College Radio", width/2, 60);// What is the Text
-
   background(255, 0, 0);
   rect(X, Y, W, H);//Rectangle Coordinates for Rock & Roll
   fill(255);//Color of Rectangle
   rect(X2, Y2, W2, H2);//Rectangle Coordinates for Electronic
   fill(255);
+  rect(X3, Y3, W3, H3);
+  fill(255);
+  textAlign(CENTER);// Where should the text be put
+  text("Arizona Western College Radio", width/2, 60);// What is the Text`
   {//Mouse Cursor
     for (int i = num2-1; i > 0; i--) 
     {
@@ -88,6 +97,7 @@ void draw()
             { 
               player2[c].pause();
               player2[c].rewind();
+              player[c].unmute();
               player[c].play();
             }
           }
@@ -99,11 +109,34 @@ void draw()
         {
           for (int d=0; d<3; d++)
           {
-            player[c].pause();
-            player[c].rewind();
+            player[d].pause();
+            player[d].rewind();
             player2[c].play();
+            player2[c].unmute();
           }
         }
+      }
+    }
+  }
+  if (mousePressed)
+  {
+    if (mouseX>= X3 && mouseX <= X3+W3 && mouseY >= Y3 && mouseY <= Y3+H3)
+    {
+      for (int d=0; d<3; d++)
+      {
+        player[d].mute();
+        player2[c].mute();
+      }
+    }
+  }
+  if (mousePressed)
+  {
+    if (mouseX>= X4 && mouseX <= X4+W4 && mouseY >= Y4 && mouseY <= Y4+H4)
+    {
+      for (int d=0; d<3; d++)
+      {
+        player[d].unmute();
+        player2[c].unmute();
       }
     }
   }
