@@ -26,7 +26,7 @@ class Jazz
     //Audio
     if (mousePressed)
     {
-      if (mouseX>= x && mouseX <= x+450 && mouseY >= Y && mouseY <= y+100)
+      if (mouseX>= 500 && mouseX <= 500+450 && mouseY >= 500 && mouseY <= 500+100)
       {
         player.play();
         if (player.position() >= player.length())
