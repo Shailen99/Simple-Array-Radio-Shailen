@@ -1,4 +1,4 @@
-// Add Odd Future Music
+// Songs: Who Dat Boy Tyler, Thinkin Bout You Frank, Oldie OF Vol 2
 class GOLF
 {
   PImage GolfImage;
@@ -10,6 +10,7 @@ class GOLF
   GOLF()
   {
     GolfImage = loadImage("Golf_Wang_Logo.png");
+    Golfplayer = minim.loadFile("Oldie - Odd Future.mp3");
   }
   void display()
   {
