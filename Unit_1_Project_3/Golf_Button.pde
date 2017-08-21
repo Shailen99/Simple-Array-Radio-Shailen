@@ -11,6 +11,8 @@ class GOLF
   {
     GolfImage = loadImage("Golf_Wang_Logo.png");
     Golfplayer = minim.loadFile("Oldie - Odd Future.mp3");
+    Golfplayer2 = minim.loadFile("Frank Ocean-Thinking About You WLyrics.mp3");
+    Golfplayer3 = minim.loadFile("Tyler The Creator - Aint Got Time (Audio).mp3");
   }
   void display()
   {
@@ -21,9 +23,19 @@ class GOLF
     //Audio
     if (mousePressed)
     {
-      if (mouseX>= 500 && mouseX <= 500+450 && mouseY >= 500 && mouseY <= 500+100)
+      if (mouseX>= 500 && mouseX <= 500+450 && mouseY >= 300 && mouseY <= 300+100)
       {
         Golfplayer.play();
+        if (Golfplayer.position() >= Golfplayer.length())
+        {
+          Golfplayer.pause();
+          Golfplayer2.play();
+          if (Golfplayer2.position() >= Golfplayer2.length())
+          {
+            Golfplayer2.pause();
+            Golfplayer3.play();
+          }
+        }
       }
     }
   }

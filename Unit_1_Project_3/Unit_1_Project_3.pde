@@ -1,4 +1,4 @@
-//Radios to add GOLF Radio, Hip Hop Radio, Classics Radio and Indie Radio. For Now
+//Radios to add Hip Hop Radio, Classics Radio and Indie Radio. For Now
 //What else to add?Need to add volume changer
 
 import ddf.minim.*;
